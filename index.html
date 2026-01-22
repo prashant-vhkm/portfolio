@@ -1467,6 +1467,65 @@
       ::-webkit-scrollbar-thumb:hover {
         background: var(--gradient-secondary);
       }
+
+      .download-cv {
+        margin-top: 12px;
+      }
+
+      .cv-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        background: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: 0.3s ease;
+      }
+
+      .cv-btn:hover {
+        background: #0056b3;
+        transform: translateY(-2px);
+      }
+
+      /* Spinner animation */
+      .fa-spinner {
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Notification animations */
+      @keyframes slideIn {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideOut {
+        from {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        to {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1494,7 +1553,6 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
-            <!-- <li><a href="#certifications">Certifications</a></li> -->
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -1533,6 +1591,13 @@
                 <i class="fab fa-linkedin"></i>
                 <span>linkedin.com/in/prashantvhkm</span>
               </div>
+
+              <!-- Download CV Button -->
+              <div class="download-cv">
+                <a href="Prashant.pdf" download class="cv-btn">
+                  <i class="fas fa-download"></i> Download CV
+                </a>
+              </div>
             </div>
 
             <div class="btn-group fade-in delay-3">
@@ -1550,25 +1615,6 @@
             </div>
           </div>
         </div>
-
-        <!-- <div class="stats">
-          <div class="stat-item fade-in">
-            <div class="stat-number">2+</div>
-            <div class="stat-label">Years Experience</div>
-          </div>
-          <div class="stat-item fade-in delay-1">
-            <div class="stat-number">15+</div>
-            <div class="stat-label">Projects Completed</div>
-          </div>
-          <div class="stat-item fade-in delay-2">
-            <div class="stat-number">3</div>
-            <div class="stat-label">Internships</div>
-          </div>
-          <div class="stat-item fade-in delay-3">
-            <div class="stat-number">10+</div>
-            <div class="stat-label">Technologies</div>
-          </div>
-        </div> -->
       </div>
     </section>
 
@@ -1651,7 +1697,7 @@
                 <h4 style="color: var(--text-dark); margin-bottom: 15px">
                   Always Learning
                 </h4>
-                <p style="color: var(--text-medium)">
+                <p style="color: var(--text-medium">
                   Continuously expanding my skill set and exploring new
                   technologies.
                 </p>
@@ -1914,61 +1960,6 @@
       </div>
     </section>
 
-    <!-- Certifications Section -->
-    <!-- <section id="certifications">
-      <div class="container">
-        <div class="section-title fade-in">
-          <h2>Certifications</h2>
-          <p>Professional certifications and completed courses</p>
-        </div>
-
-        <div class="certifications">
-          <div class="cert-card fade-in">
-            <h4>Linux Fundamentals</h4>
-            <p class="provider">Linux Foundation</p>
-            <p class="description">
-              Comprehensive understanding of Linux operating system, command
-              line utilities, file systems, and basic system administration.
-            </p>
-            <p class="date">Completed: 2024</p>
-          </div>
-
-          <div class="cert-card fade-in delay-1">
-            <h4>React Native Development</h4>
-            <p class="provider">Udemy</p>
-            <p class="description">
-              Hands-on training in building cross-platform mobile applications
-              using React Native, including state management, navigation, and
-              API integration.
-            </p>
-            <p class="date">Completed: 2025</p>
-          </div>
-
-          <div class="cert-card fade-in delay-2">
-            <h4>Full Stack Web Development</h4>
-            <p class="provider">Coursera</p>
-            <p class="description">
-              Complete full-stack development training covering frontend
-              (React), backend (Node.js, Express), and database (MongoDB)
-              technologies.
-            </p>
-            <p class="date">Completed: 2024</p>
-          </div>
-        </div>
-
-        <div class="resume-download fade-in">
-          <a
-            href="prashant.pdf"
-            download="Prashant_Vishwakarma_Resume.pdf"
-            class="btn"
-          >
-            <i class="fas fa-download"></i> Download Full Resume (PDF)
-          </a>
-        </div>
-      </div>
-    </section> 
-    -->
-
     <!-- Contact Section -->
     <section id="contact">
       <div class="container">
@@ -2034,19 +2025,52 @@
 
           <div class="contact-form fade-in delay-1">
             <h3>Send a Message</h3>
-            <form id="contactForm">
+            <form
+              action="https://formspree.io/f/mqepzwqb"
+              method="POST"
+              id="contactForm"
+            >
               <div class="form-group">
-                <input type="text" placeholder="Your Name" required />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
               </div>
               <div class="form-group">
-                <input type="email" placeholder="Your Email" required />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
               </div>
               <div class="form-group">
-                <input type="text" placeholder="Subject" required />
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  required
+                />
               </div>
               <div class="form-group">
-                <textarea placeholder="Your Message" required></textarea>
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
               </div>
+              <!-- Hidden honeypot field for spam protection -->
+              <input type="text" name="_gotcha" style="display: none" />
+              <!-- Auto reply configuration -->
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Message from Portfolio - Prashant Vishwakarma"
+              />
+              <input type="hidden" name="_replyto" value="{{email}}" />
+              <input type="hidden" name="_cc" value="prashantvhkm@gmail.com" />
               <button type="submit" class="btn" style="width: 100%">
                 <i class="fas fa-paper-plane"></i> Send Message
               </button>
@@ -2149,59 +2173,125 @@
         });
       });
 
-      // Form submission
+      // Form submission with Formspree
       document
         .getElementById("contactForm")
-        .addEventListener("submit", function (e) {
+        .addEventListener("submit", async function (e) {
           e.preventDefault();
 
-          const button = this.querySelector("button");
+          const form = e.target;
+          const formData = new FormData(form);
+          const button = form.querySelector("button");
           const originalText = button.innerHTML;
           const originalBg = button.style.background;
 
-          button.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-          button.style.background = "linear-gradient(135deg, #06d6a0, #059669)";
+          // Disable button and show loading
+          button.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Sending...';
+          button.disabled = true;
           button.style.cursor = "default";
 
-          // Show success message
-          const successMsg = document.createElement("div");
-          successMsg.style.cssText = `
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, #06d6a0, #059669);
-            color: white;
-            padding: 20px 30px;
-            border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(6, 214, 160, 0.3);
-            z-index: 10000;
-            animation: slideIn 0.4s ease;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-weight: 600;
-            max-width: 400px;
-          `;
+          try {
+            const response = await fetch(form.action, {
+              method: "POST",
+              body: formData,
+              headers: {
+                Accept: "application/json",
+              },
+            });
 
-          successMsg.innerHTML = `
-            <i class="fas fa-check-circle" style="font-size: 1.5rem;"></i>
-            <div>
-              <p style="margin: 0; font-size: 1.1rem;">Message sent successfully!</p>
-              <p style="margin: 5px 0 0 0; opacity: 0.9; font-size: 0.9rem;">I'll get back to you soon.</p>
-            </div>
-          `;
+            if (response.ok) {
+              // Success message
+              button.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+              button.style.background =
+                "linear-gradient(135deg, #06d6a0, #059669)";
 
-          document.body.appendChild(successMsg);
+              // Show success notification
+              showNotification(
+                '<i class="fas fa-check-circle" style="color: #06d6a0;"></i>',
+                "Message sent successfully!",
+                "I'll get back to you soon."
+              );
 
-          setTimeout(() => {
-            button.innerHTML = originalText;
-            button.style.background = originalBg;
-            button.style.cursor = "pointer";
-            successMsg.style.animation = "slideOut 0.4s ease";
-            setTimeout(() => successMsg.remove(), 400);
-            this.reset();
-          }, 3000);
+              // Reset form after 3 seconds
+              setTimeout(() => {
+                form.reset();
+                button.innerHTML = originalText;
+                button.disabled = false;
+                button.style.background = originalBg;
+                button.style.cursor = "pointer";
+              }, 3000);
+            } else {
+              throw new Error("Form submission failed");
+            }
+          } catch (error) {
+            // Error message
+            button.innerHTML =
+              '<i class="fas fa-exclamation-circle"></i> Failed';
+            button.style.background =
+              "linear-gradient(135deg, #ef476f, #d00000)";
+
+            showNotification(
+              '<i class="fas fa-exclamation-circle" style="color: #ef476f;"></i>',
+              "Failed to send message",
+              "Please try again or email me directly at prashantvhkm@gmail.com"
+            );
+
+            setTimeout(() => {
+              button.innerHTML = originalText;
+              button.disabled = false;
+              button.style.background = originalBg;
+              button.style.cursor = "pointer";
+            }, 3000);
+          }
         });
+
+      // Notification function
+      function showNotification(icon, title, subtitle) {
+        const notification = document.createElement("div");
+
+        notification.style.cssText = `
+          position: fixed;
+          top: 30px;
+          right: 30px;
+          background: var(--card-bg);
+          color: var(--text-dark);
+          padding: 20px 30px;
+          border-radius: 16px;
+          box-shadow: var(--shadow-lg);
+          z-index: 10000;
+          animation: slideIn 0.4s ease;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          font-weight: 600;
+          max-width: 400px;
+          border: 2px solid ${icon.includes("check") ? "#06d6a0" : "#ef476f"};
+          backdrop-filter: blur(10px);
+        `;
+
+        notification.innerHTML = `
+          <div style="font-size: 1.8rem;">
+            ${icon}
+          </div>
+          <div>
+            <p style="margin: 0; font-size: 1.1rem; font-weight: 700;">${title}</p>
+            <p style="margin: 5px 0 0 0; opacity: 0.9; font-size: 0.95rem; font-weight: 500;">${subtitle}</p>
+          </div>
+        `;
+
+        document.body.appendChild(notification);
+
+        // Remove notification after 3 seconds
+        setTimeout(() => {
+          notification.style.animation = "slideOut 0.4s ease";
+          setTimeout(() => {
+            if (notification.parentNode) {
+              notification.parentNode.removeChild(notification);
+            }
+          }, 400);
+        }, 3000);
+      }
 
       // Smooth scrolling
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -2270,7 +2360,7 @@
       });
 
       // Resume Download with notification
-      document.querySelectorAll('a[href="prashant.pdf"]').forEach((link) => {
+      document.querySelectorAll('a[href="Prashant.pdf"]').forEach((link) => {
         link.addEventListener("click", function (e) {
           e.preventDefault();
 
@@ -2279,24 +2369,29 @@
             position: fixed;
             top: 30px;
             right: 30px;
-            background: linear-gradient(135deg, #4361ee, #3a0ca3);
-            color: white;
+            background: var(--card-bg);
+            color: var(--text-dark);
             padding: 20px 30px;
             border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(67, 97, 238, 0.4);
+            box-shadow: var(--shadow-lg);
             z-index: 10000;
             animation: slideIn 0.4s ease;
             display: flex;
             align-items: center;
             gap: 15px;
             font-weight: 600;
+            border: 2px solid var(--primary);
+            backdrop-filter: blur(10px);
+            max-width: 400px;
           `;
 
           notification.innerHTML = `
-            <i class="fas fa-download" style="font-size: 1.5rem;"></i>
+            <div style="font-size: 1.8rem; color: var(--primary);">
+              <i class="fas fa-download"></i>
+            </div>
             <div>
-              <p style="margin: 0; font-size: 1.1rem;">Resume download started!</p>
-              <p style="margin: 5px 0 0 0; opacity: 0.9; font-size: 0.9rem;">Thank you for your interest!</p>
+              <p style="margin: 0; font-size: 1.1rem; font-weight: 700;">Resume download started!</p>
+              <p style="margin: 5px 0 0 0; opacity: 0.9; font-size: 0.95rem; font-weight: 500;">Thank you for your interest!</p>
             </div>
           `;
 
@@ -2304,7 +2399,11 @@
 
           setTimeout(() => {
             notification.style.animation = "slideOut 0.4s ease";
-            setTimeout(() => notification.remove(), 400);
+            setTimeout(() => {
+              if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+              }
+            }, 400);
           }, 3000);
 
           const downloadLink = this.href;
@@ -2316,33 +2415,6 @@
           document.body.removeChild(tempLink);
         });
       });
-
-      // Add animation styles
-      const animationStyle = document.createElement("style");
-      animationStyle.textContent = `
-        @keyframes slideIn {
-          from {
-            transform: translateX(100%);
-            opacity: 0;
-          }
-          to {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-        
-        @keyframes slideOut {
-          from {
-            transform: translateX(0);
-            opacity: 1;
-          }
-          to {
-            transform: translateX(100%);
-            opacity: 0;
-          }
-        }
-      `;
-      document.head.appendChild(animationStyle);
 
       // Add particle background effect
       const particlesStyle = document.createElement("style");
